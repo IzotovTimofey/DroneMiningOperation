@@ -1,0 +1,2 @@
+# DroneMiningOperation
+Test Assignment
