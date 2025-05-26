@@ -1,11 +1,14 @@
+using System;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class DroneMovementComponent : MonoBehaviour
 {
-    [SerializeField] private Drone _drone;
+    [SerializeField] private float _destinationReachingMagnitute = 0.5f;
 
     private NavMeshAgent _agent;
+    private Transform _currentTarget;
+    private Action _onDestinationReached;
 
     private void Awake()
     {
@@ -14,11 +17,20 @@ public class DroneMovementComponent : MonoBehaviour
 
     private void Update()
     {
-        if (!_drone.IsActive)
+        if (_currentTarget == null)
             return;
-        if (_drone.CurrentTarget != null)
-            _agent.destination = _drone.CurrentTarget.transform.position;
-        else
-            _drone.GetNewTarget();
+        _agent.destination = _currentTarget.transform.position;
+        if ((_currentTarget.transform.position - _agent.transform.position).magnitude <= _destinationReachingMagnitute)
+        {
+            _currentTarget = null;
+            _onDestinationReached?.Invoke();
+        }
+
+    }
+
+    public void SetDestination(Transform destination, Action onDestinationReached)
+    {
+        _onDestinationReached = onDestinationReached;
+        _currentTarget = destination;
     }
 }

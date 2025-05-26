@@ -64,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 33dba1b1b1f5a8b47843baaa92f34aef, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -186,7 +186,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 6264552941218626698}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 1
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
@@ -212,6 +212,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _agent: {fileID: 2324873579487936499}
+  _movementComponent: {fileID: 7011722620960009996}
+  _renderer: {fileID: 4383269760537629127}
 --- !u!114 &7011722620960009996
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -224,4 +226,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38ef545fd17ca2e42b87716e64f833c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _drone: {fileID: 3930261286441016476}
+  _destinationReachingMagnitute: 0.5

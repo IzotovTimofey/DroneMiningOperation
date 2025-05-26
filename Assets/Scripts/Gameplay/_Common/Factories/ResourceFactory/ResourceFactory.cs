@@ -20,15 +20,10 @@ public class ResourceFactory : MonoBehaviour
     private GenericPool<Resource> _resourcePool;
     private bool _isSpawning = true;
     private Vector3 _randomSpawningPosition;
-    private List<Resource> _activeResrourcesList;
 
     private void Awake()
     {
         _resourcePool = new(_resourcePrefab, _resourcesPoolSize, _resourcesPoolParent);
-    }
-
-    private void Start()
-    {
         for (int i = 0; i < _startResourceAmount; i++)
         {
             SpawnResource();
@@ -82,8 +77,10 @@ public class ResourceFactory : MonoBehaviour
         foreach (var obj in activeObjects)
         {
             if (!obj.IsAvailable)
+            {
                 continue;
-            resourcesDistance.Add(obj, (obj.transform.position - transform.position).magnitude);
+            }
+            resourcesDistance.Add(obj, (obj.transform.position - basePosition).magnitude);
         }
         if (resourcesDistance.Count != 0)
         {

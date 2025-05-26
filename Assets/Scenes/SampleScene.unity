@@ -748,13 +748,13 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1322365129}
     - target: {fileID: 3438442254780523460, guid: 8087282e1942ace4e857723e15bf02db, type: 3}
+      propertyPath: _teamAssigner
+      value: 
+      objectReference: {fileID: 2118931178}
+    - target: {fileID: 3438442254780523460, guid: 8087282e1942ace4e857723e15bf02db, type: 3}
       propertyPath: _resourceFactory
       value: 
       objectReference: {fileID: 2095869731}
-    - target: {fileID: 3438442254780523460, guid: 8087282e1942ace4e857723e15bf02db, type: 3}
-      propertyPath: _startingDronesAmount
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6444956876711752588, guid: 8087282e1942ace4e857723e15bf02db, type: 3}
       propertyPath: m_Name
       value: Base2
@@ -965,16 +965,20 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1322365129}
     - target: {fileID: 3438442254780523460, guid: 8087282e1942ace4e857723e15bf02db, type: 3}
+      propertyPath: _teamAssigner
+      value: 
+      objectReference: {fileID: 2118931178}
+    - target: {fileID: 3438442254780523460, guid: 8087282e1942ace4e857723e15bf02db, type: 3}
       propertyPath: _resourceFactory
       value: 
       objectReference: {fileID: 2095869731}
-    - target: {fileID: 3438442254780523460, guid: 8087282e1942ace4e857723e15bf02db, type: 3}
-      propertyPath: _startingDronesAmount
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6444956876711752588, guid: 8087282e1942ace4e857723e15bf02db, type: 3}
       propertyPath: m_Name
       value: Base1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6444956876711752588, guid: 8087282e1942ace4e857723e15bf02db, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1871,13 +1875,67 @@ MonoBehaviour:
   _startResourceAmount: 20
   _minResourceAmountGenerated: 1
   _maxResourceAmountGenerated: 3
-  _resourceGenerationTimer: 4
+  _resourceGenerationTimer: 5
   _boundary1: {fileID: 631073845}
   _boundary2: {fileID: 767762317}
+--- !u!1 &2118931177
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2118931179}
+  - component: {fileID: 2118931178}
+  m_Layer: 0
+  m_Name: LevelControllers
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2118931178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2118931177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1534f96b6966060438eb6d973a118330, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _teamsList:
+  - IsFree: 0
+    Color: {r: 1, g: 0, b: 0, a: 1}
+  - IsFree: 0
+    Color: {r: 0, g: 0.045587063, b: 1, a: 1}
+  - IsFree: 0
+    Color: {r: 1, g: 0, b: 0.8690777, a: 1}
+  - IsFree: 0
+    Color: {r: 0, g: 1, b: 0.118541956, a: 1}
+--- !u!4 &2118931179
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2118931177}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 963194228}
   - {fileID: 705507995}
+  - {fileID: 2118931179}
   - {fileID: 1466898963}
