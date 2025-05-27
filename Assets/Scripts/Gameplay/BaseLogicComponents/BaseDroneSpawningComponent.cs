@@ -1,3 +1,7 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using UnityEditor.XR;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -6,13 +10,14 @@ public class BaseDroneSpawningComponent : MonoBehaviour
     [SerializeField] private TeamAssigner _teamAssigner;
     [Space(15)]
     [Header("Setup")]
-    [SerializeField] private int _startingDronesAmount = 1;
     [SerializeField] private DroneFactory _droneFactory;
     [SerializeField] private ResourceFactory _resourceFactory;
+    [SerializeField] private int _startDroneCount;
 
-    [SerializeField] private Transform[] _dronesWPs;
+    [SerializeField] private List<DroneSpot> _droneSpots;
     [SerializeField] private Renderer _renderer;
 
+    private List<Drone> _activeDronesList = new();
     private int _storedValue;
     private Color _teamColor;
 
@@ -22,7 +27,7 @@ public class BaseDroneSpawningComponent : MonoBehaviour
     {
         _teamColor = _teamAssigner.GetTeamColor();
         SetTeamColor(_renderer);
-        SpawnDrone(_startingDronesAmount);
+        SpawnDrone(_startDroneCount);
     }
 
     private void SpawnDrone(int count)
@@ -30,9 +35,12 @@ public class BaseDroneSpawningComponent : MonoBehaviour
         for (int i = 0; i < count; i++)
         {
             var drone = _droneFactory.GetDrone();
-            drone.Agent.Warp(_dronesWPs[i].position);
+            _activeDronesList.Add(drone);
+            var freeSpot = _droneSpots.Where(s => s.IsFree).First();
+            freeSpot.LockSpot();
+
             SetTeamColor(drone.Renderer);
-            drone.ActivateDrone(GetResource, _dronesWPs[i]);
+            drone.ActivateDrone(GetResource, freeSpot);
             drone.SendToResource(GetClosestResource());
         }
     }
@@ -54,5 +62,31 @@ public class BaseDroneSpawningComponent : MonoBehaviour
     private void SetTeamColor(Renderer renderer)
     {
         renderer.material.SetColor("_Color", _teamColor);
+    }
+
+    private void ReleaseDrone(int count)
+    {
+        if (count > _activeDronesList.Count)
+            count = _activeDronesList.Count;
+
+        for (int i = 0; i < count; i++)
+        {
+            var drone = _activeDronesList[i];
+            drone.Release();
+            _activeDronesList.Remove(drone);
+        }
+    }
+
+    public void SetDronesCount(int value)
+    {
+        int droneCountDifference = value - _activeDronesList.Count;
+        if (droneCountDifference < 0)
+        {
+            ReleaseDrone(Mathf.Abs(droneCountDifference));
+        }
+        else
+        {
+            SpawnDrone(droneCountDifference);
+        }
     }
 }

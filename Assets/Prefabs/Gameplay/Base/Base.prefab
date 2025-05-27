@@ -73,6 +73,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3607522791319549383}
+  - component: {fileID: 8969850831833536410}
   m_Layer: 0
   m_Name: WP1
   m_TagString: Untagged
@@ -95,6 +96,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 6313548491428479941}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8969850831833536410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2619766347185875425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f51e53af0b6a7224c91e802bf1915cfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _droneWP: {fileID: 3607522791319549383}
 --- !u!1 &4786644407024034045
 GameObject:
   m_ObjectHideFlags: 0
@@ -214,6 +228,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6572486041522941065}
+  - component: {fileID: 6743131014923570209}
   m_Layer: 0
   m_Name: WP4
   m_TagString: Untagged
@@ -236,6 +251,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 6313548491428479941}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6743131014923570209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5603924509492861654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f51e53af0b6a7224c91e802bf1915cfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _droneWP: {fileID: 6572486041522941065}
 --- !u!1 &6048983032190586045
 GameObject:
   m_ObjectHideFlags: 0
@@ -383,6 +411,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3854335421082937545}
+  - component: {fileID: 6632892311139722648}
   m_Layer: 0
   m_Name: WP2
   m_TagString: Untagged
@@ -405,6 +434,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 6313548491428479941}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6632892311139722648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6189439880890385877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f51e53af0b6a7224c91e802bf1915cfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _droneWP: {fileID: 3854335421082937545}
 --- !u!1 &6444956876711752588
 GameObject:
   m_ObjectHideFlags: 0
@@ -470,15 +512,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _teamAssigner: {fileID: 0}
-  _startingDronesAmount: 5
   _droneFactory: {fileID: 0}
   _resourceFactory: {fileID: 0}
-  _dronesWPs:
-  - {fileID: 3607522791319549383}
-  - {fileID: 3854335421082937545}
-  - {fileID: 7390261691548135947}
-  - {fileID: 6572486041522941065}
-  - {fileID: 1563280597153439524}
+  _startDroneCount: 1
+  _droneSpots:
+  - {fileID: 8969850831833536410}
+  - {fileID: 6632892311139722648}
+  - {fileID: 3513966276357770992}
+  - {fileID: 6743131014923570209}
+  - {fileID: 7082436459685669528}
   _renderer: {fileID: 1679909587520149951}
 --- !u!1 &7061121920202357428
 GameObject:
@@ -625,6 +667,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7390261691548135947}
+  - component: {fileID: 3513966276357770992}
   m_Layer: 0
   m_Name: WP3
   m_TagString: Untagged
@@ -647,6 +690,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 6313548491428479941}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3513966276357770992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8527238833592975659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f51e53af0b6a7224c91e802bf1915cfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _droneWP: {fileID: 7390261691548135947}
 --- !u!1 &8849364557517731931
 GameObject:
   m_ObjectHideFlags: 0
@@ -656,6 +712,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1563280597153439524}
+  - component: {fileID: 7082436459685669528}
   m_Layer: 0
   m_Name: WP5
   m_TagString: Untagged
@@ -678,6 +735,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 6313548491428479941}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7082436459685669528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8849364557517731931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f51e53af0b6a7224c91e802bf1915cfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _droneWP: {fileID: 1563280597153439524}
 --- !u!1 &8872473348338144900
 GameObject:
   m_ObjectHideFlags: 0

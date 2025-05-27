@@ -1,5 +1,3 @@
-using System;
-using System.Collections;
 using UnityEngine;
 
 public class Resource : MonoBehaviour
@@ -8,9 +6,9 @@ public class Resource : MonoBehaviour
     [SerializeField] private int _resourceValue = 10;
 
     private bool _isAvailable = true;
-    private Action<int> _onCollection;
 
     public bool IsAvailable => _isAvailable;
+    public float CollectionTime => _collectionTime;
 
     private void OnEnable()
     {
@@ -22,17 +20,14 @@ public class Resource : MonoBehaviour
         _isAvailable = false;
     }
 
-    public void StartCollection(Action<int> onCollect)
+    public void SetFree()
     {
-        _onCollection = onCollect;
-        StartCoroutine(CollectionCourutine());
+        _isAvailable = true;
     }
 
-    private IEnumerator CollectionCourutine()
+    public int Collect()
     {
-        yield return new WaitForSeconds(_collectionTime);
-        _onCollection?.Invoke(_resourceValue);
         gameObject.SetActive(false);
+        return _resourceValue;
     }
-
 }
