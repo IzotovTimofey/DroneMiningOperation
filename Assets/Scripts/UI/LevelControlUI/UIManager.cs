@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-    [SerializeField] private List<BaseDroneSpawningComponent> _bases;
+    [SerializeField] private List<BaseController> _bases;
     [SerializeField] private Slider _droneCountChanger;
 
     private int _maxDroneCount = 5;

@@ -1,11 +1,9 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEditor.XR;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class BaseDroneSpawningComponent : MonoBehaviour
+public class BaseController : MonoBehaviour
 {
     [SerializeField] private TeamAssigner _teamAssigner;
     [Space(15)]
@@ -27,10 +25,10 @@ public class BaseDroneSpawningComponent : MonoBehaviour
     {
         _teamColor = _teamAssigner.GetTeamColor();
         SetTeamColor(_renderer);
-        SpawnDrone(_startDroneCount);
+        AssignDroneToBase(_startDroneCount);
     }
 
-    private void SpawnDrone(int count)
+    private void AssignDroneToBase(int count)
     {
         for (int i = 0; i < count; i++)
         {
@@ -86,7 +84,7 @@ public class BaseDroneSpawningComponent : MonoBehaviour
         }
         else
         {
-            SpawnDrone(droneCountDifference);
+            AssignDroneToBase(droneCountDifference);
         }
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 public class ResourceCounterUpdater : MonoBehaviour
 {
     [SerializeField] private TMP_Text _counter;
-    [SerializeField] private BaseDroneSpawningComponent _base;
+    [SerializeField] private BaseController _base;
 
     private void OnEnable()
     {
